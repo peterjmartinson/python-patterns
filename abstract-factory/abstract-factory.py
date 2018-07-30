@@ -6,6 +6,16 @@ class Rapper(object):
     def setInterests(self, interest): pass
     def talk(self): pass
 
+class Street(object):
+    name = None
+    quality = None
+    def __init__(self, name):
+        self.name = name
+    def setDescription(self, quality): pass
+    def describe(self): pass
+
+
+
 class GoodRapper(Rapper):
     def setInterest(self, interest):
         self.likes = interest
@@ -19,16 +29,6 @@ class EvilRapper(Rapper):
     def talk(self):
         message = self.name + " does not like " + self.likes
         print(message)
-
-
-
-class Street(object):
-    name = None
-    quality = None
-    def __init__(self, name):
-        self.name = name
-    def setDescription(self, quality): pass
-    def describe(self): pass
 
 class GoodStreet(Street):
     def setDescription(self, quality):
@@ -53,6 +53,14 @@ class Town(object):
         self.rapper = rapper_type
     def setStreet(self, street_type):
         self.street = street_type
+
+class GoodTown(Town):
+    rapper = GoodRapper("Sir Mixalot")
+    street = GoodStreet("Helle")
+
+class BadTown(Town):
+    rapper = EvilRapper("Sir Mixesalittle")
+    street = BadStreet("Dunkle")
 
 class TownFactory(object):
     def getTown(self, town_type):
