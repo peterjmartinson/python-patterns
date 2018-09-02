@@ -5,6 +5,7 @@ class Value(object):
 
     def setValue(self, new_value):
         self.value = new_value
+        self.value = 4
 
     def getValue(self):
         return self.value
